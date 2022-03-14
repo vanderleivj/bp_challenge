@@ -1,0 +1,19 @@
+.customModal{
+  width:100%;
+  height: 100%;
+}
+
+.react-responsive-modal-modal{
+  max-width: 100%;
+  background: transparent;
+  padding:15px;
+  margin:0px;
+}
+
+.react-responsive-modal-closeButton{
+  background-color: #FFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #FFFF;
+  border-radius: 50%;
+}

@@ -1,0 +1,1 @@
+export const GET_SINGLE_CARD_INFO = 'GET_SINGLE_CARD_INFO';
