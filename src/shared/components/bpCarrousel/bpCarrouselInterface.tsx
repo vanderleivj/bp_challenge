@@ -8,4 +8,5 @@ export interface BpCarrouselContainerProps {
   backgroundImage: string,
   onClick: () => void,
   children: any,
+  testID?: string;
 }

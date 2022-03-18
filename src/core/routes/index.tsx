@@ -9,7 +9,9 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/conteudo/:id' element={<SinglePageContent />} />
+        <Route  path='conteudo'  element={<SinglePageContent/>}>
+          <Route path=':id'element={<SinglePageContent />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

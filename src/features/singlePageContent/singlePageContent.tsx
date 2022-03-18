@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 
@@ -36,11 +36,7 @@ export function SinglePageContent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const size = useWindowSize();
-
-  const video = useRef<HTMLVideoElement>();
-  const playVideo = (event: any) => {
-    video.current && video.current.play();
-  };
+  const params = useParams();
   
   const [loading, setLoading] = useState(false)
   const [newSeriesList, setNewSeriesList]: any = useState([])
@@ -51,9 +47,7 @@ export function SinglePageContent() {
 
   useEffect(() => {
     setLoading(true)
-    let url = window.location.href.split('/')
-    const contentId = url[url.length - 1]
-
+    const contentId: any = params.id
     dispatch(getSingleCard(contentId,() => {
       setLoading(false)
     }))
@@ -70,7 +64,7 @@ export function SinglePageContent() {
         setNewSeriesList(list)
       }
     }))
-  },[])
+  },[params.id])
 
   const handleOpenLink = (link: string) => {
     let splitLink = link.split('=')
@@ -79,8 +73,7 @@ export function SinglePageContent() {
   }
 
   const handleSelectCard = (item: SelectProps) => {
-    // setLoading(true)
-    // navigate(`conteudo/${item.id}`)
+    navigate(`${item.id}`)
   }
 
   return (
@@ -145,7 +138,6 @@ export function SinglePageContent() {
                   </span> :
                   <span></span>
                 }
-                
               </BpCarrouselContainer>
               : ''
             )
