@@ -6,9 +6,15 @@ O projeto tem o objetivo de reconstruir a UI publicada via Figma [https://www.fi
 
 Para iniciar o projeto, primeiro temos que instalar os pacotes utilizando o comando:
 
-### yarn
+### `yarn`
 
 Após a instalação dos pacotes nós devemos rodar o comando:
+
+## Testando os componentes
+
+Para realizar os testes dos componentes utilize o comando:
+
+### `yarn test`
 
 ## Compilando e distribuindo o projeto
 

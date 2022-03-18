@@ -19,6 +19,7 @@ import { MobileMenu } from '../../shared/components/mobileMenu/mobileMenu';
 
 //Redux
 import { getHomePageInfo } from './redux/homeActions';
+import { BpContact } from '../../shared/components/bpContact/bpContact';
 
 export function Home() {
   const dispatch = useDispatch();
@@ -26,7 +27,6 @@ export function Home() {
   const size = useWindowSize();
 
   const [loading, setLoading] = useState(false)
-  
   const listHomePageInfo = useSelector((state:any) => state.HomeReducer?.listHomePageInfo);
   const listOfSeries = useSelector((state:any) => state.HomeReducer?.listOfSeries);
   const listOfTraining = useSelector((state:any) => state.HomeReducer?.listOfTraining);
@@ -47,6 +47,7 @@ export function Home() {
   return (
     <>
       <Loader open={loading}/>
+      <BpContact />
       {size.width > 767 ? <MainMenu /> : <MobileMenu/>}
       <MainBanner
         isMobile={size.width < 767}
@@ -66,6 +67,7 @@ export function Home() {
           {listOfSeries.map((item: SeriesListProps) => {
             return(
               <BpCarrouselContainer 
+                testID={item.id}
                 backgroundImage={item?.image_url}
                 onClick={() => handleSelectCard(item)}
               >
@@ -84,7 +86,7 @@ export function Home() {
         <BpCarrousel>
           {listOfTraining.map((item: TrainingListProps) => {
             return(
-              <BpCarrouselContainer 
+              <BpCarrouselContainer
                 backgroundImage={item?.image_url}
                 onClick={() => {handleSelectCard(item)}}
               >
